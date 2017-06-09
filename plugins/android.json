@@ -1,0 +1,67 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "826720427470540",
+            "APP_NAME": "Ion2FullApp",
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-googleplus": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.b2red.app"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "737509012599",
+            "PACKAGE_NAME": "com.b2red.app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.b2red.app"
+        }
+    }
+}

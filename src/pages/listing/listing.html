@@ -1,0 +1,93 @@
+<ion-header class="listing-header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+  </ion-refresher>
+   <!--<button  ion-button block color="primary" (click)="ngOnInit()">Actualizar</button>-->
+  <!--<background-image class="image-heading" [src]="listing.banner_image">
+    <ion-row class="heading-row">
+      <ion-col no-padding width-100>
+      </ion-col>
+    </ion-row>
+  </background-image>
+  <ion-list>
+   <ion-item>
+      Item with two buttons...
+      <ion-option-button class = "button-positive">Button 1</ion-option-button>
+      <ion-option-button class = "button-assertive">Button 2</ion-option-button>
+   </ion-item>
+   <ion-item>
+      Item with two buttons...
+      <ion-option-button class = "button-positive">Button 1</ion-option-button>
+      <ion-option-button class = "button-assertive">Button 2</ion-option-button>
+   </ion-item>
+</ion-list>-->
+
+  <ion-card *ngFor='let elem of ActiveOrders'>
+    <ion-card-header > 
+      <h1>Número de Pedido: {{elem.ORDERID}}</h1>
+    </ion-card-header>
+    <ion-card-content>
+       
+      <form class="signup-form auth-form">
+        <div>
+        <p>Fecha de Pedido: {{elem.ORDERDATE}}</p>
+        <p>Estado del Pedido: {{elem.ORDERSTATE}}</p>
+        <p>Tipo de Desecho: {{elem.WASTEONU}}</p>
+        <p>Cantidad: {{elem.ORDERQUANTITY}}</p>
+        
+        <!--<ion-grid>
+          <ion-row>
+            <ion-col>
+              <button  ion-button block color="primary">
+                <div>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <ion-icon name="clipboard"></ion-icon>
+                      </ion-col>
+                      <ion-col>
+                        <label>CONFIRMAR</label>
+                        
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button *ngIf="elem.ORDERSTATE!='Completado'" ion-button block color="primary" (click)="goToSignaturePad(elem.ORDERID)">
+                  <div>
+                    <ion-icon name="create"></ion-icon>
+                    <label>FIRMAR</label>
+                  </div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>-->
+       
+     
+        </div>
+      
+      </form>
+    </ion-card-content>
+    <br>
+    </ion-card>
+
+
+   
+</ion-content>
+

@@ -1,0 +1,66 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "826720427470540",
+            "APP_NAME": "Ion2FullApp",
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-googleplus": {
+            "REVERSED_CLIENT_ID": "com.googleusercontent.apps.1001905109734-eahdqq66e3k57ucrvsdkaqi4b6k17pqu",
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "737509012599",
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.startapplabs.ion2FullApp"
+        }
+    }
+}

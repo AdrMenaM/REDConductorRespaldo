@@ -1,0 +1,71 @@
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>Entrega</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="forms-examples-content">
+  
+  
+    
+    <div class="event-example-view">
+      <form class="sample-form event-form" [formGroup]="delivery_form" (ngSubmit)="createDelivery()">
+        <section class="form-section">
+          
+          <ion-item>
+            <div item-content style="width:100%; padding: 0px 15px 0px 15px; height: 60px;">
+              <ion-textarea placeholder="Observacion" #box rows="3"  formControlName="observation"></ion-textarea>  
+            </div> 
+          </ion-item>
+          <ion-item >
+            
+            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+          </ion-item>
+         <button ion-button full color="danger" (click)="clearPad()">Clear</button>
+          <button ion-button full color="secondary" (click)="savePad()">Save</button>
+        </section>
+        <section class="form-section">
+          <button ion-button block class="form-action-button create-event-button" type="submit" [disabled]="!delivery_form.valid">Done!</button>
+        </section>
+      </form>
+    </div>
+    
+
+</ion-content>-->
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Entrega
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <form class="sample-form event-form" [formGroup]="delivery_form" (ngSubmit)="createDelivery()">
+   <div item-content style="width:100%; padding: 10px 15px 0px 15px; height: 60px;">
+              <ion-textarea placeholder="Observacion" #box rows="3"  formControlName="observation"></ion-textarea>  
+  </div>
+  <div class="title">Por favor, firme aquí</div>
+  
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    <ion-col></ion-col>
+    <ion-col>
+      <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+    <ion-col></ion-col>
+ 
+  </ion-row>
+  <button ion-button full color="danger" (click)="clearPad()">Limpiar</button>
+  <button ion-button full color="secondary" (click)="savePad()">Guardar</button>
+ 
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col width-80>
+      <img [src]="signature"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  </form>
+ 
+</ion-content>

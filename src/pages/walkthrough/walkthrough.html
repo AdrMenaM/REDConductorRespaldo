@@ -1,0 +1,24 @@
+<ion-header class="walkthrough-header">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="walkthrough-content">
+  <ion-slides #slider (ionSlideDidChange)="onSlideChanged()" pager="true">
+    <ion-slide class="slide-4">
+      <ion-row class="intro-image-row">
+        <ion-col center width-64 no-padding>
+          <preload-image [ratio]="{w:1, h:1}" src="./assets/images/redl.png" alt="slide 4 img" title="ion2FullApp"></preload-image>
+        </ion-col>
+      </ion-row>
+      <h2 class="main-title">Bienvenido</h2>
+      <p class="intro-text">
+        Ingresa a tu cuenta
+      </p>
+      <div class="button-bar">
+        <button ion-button primary (click)="goToLogin()">Iniciar Sesión</button>
+        <button ion-button primary (click)="goToSignup()">Registrarse</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

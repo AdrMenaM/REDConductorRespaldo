@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Firma Recibe
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <form class="sample-form event-form" [formGroup]="delivery_form" (ngSubmit)="saveSignature()">
+   <div item-content style="width:100%; padding: 10px 15px 0px 15px; height: 60px;">
+              <!--<ion-textarea placeholder="Observacion" #box rows="3"  formControlName="observation"></ion-textarea>  -->
+  </div>
+  <div class="title">Por favor, firme aquí</div>
+  
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    <ion-col></ion-col>
+    <ion-col>
+      <signature-pad (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+    <ion-col></ion-col>
+ 
+  </ion-row>
+  <ion-row>
+  <ion-col><button ion-button full color="danger" (click)="clearPad()">Limpiar</button></ion-col>
+  <ion-col><button ion-button full color="primary" (click)="savePad()">Guardar</button></ion-col>
+  <ion-col><button ion-button full color="secondary" (click)="savePickup()" *ngIf="sw2==true">Terminar</button></ion-col>
+  </ion-row>
+ 
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col width-80>
+      <img [src]="signature"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  </form>
+ 
+</ion-content>

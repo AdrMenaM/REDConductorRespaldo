@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons end [hidden]="!settingsForm.dirty">
+      <button ion-button (click)='saveChanges()'>
+        Guardar
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="settings-content">
+  <!--<div class="user-image-content">
+    <ion-row no-padding class="user-image-row">
+      <ion-col no-padding width-40>
+        <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="profile.user.image" alt="aca va la img" title="IMAGE!"></preload-image>
+      </ion-col>
+    </ion-row>
+    <h3 class="image-action">Cambiar imagen de perfil</h3>
+  </div>-->
+  <div style="height: 20px"></div>
+
+  <form [formGroup]="settingsForm" class="settings-form">
+    <ion-list class="user-data-content">
+      <ion-item>
+        <ion-label stacked>Nombre</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Apellido</ion-label>
+        <ion-input type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Cédula/RUC</ion-label>
+        <ion-input type="text" formControlName="ruc"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Teléfono</ion-label>
+        <ion-input type="tel" formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Dirección</ion-label>
+        <ion-input formControlName="address"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input formControlName="email" ></ion-input>
+      </ion-item>
+      <!--<img id="MapImage" (click)="SetPosition()" src="https://maps.googleapis.com/maps/api/staticmap?center=-1.703447,-78.8145726&zoom=10&size=400x300&scale=2&markers=icon:https://s3-us-west-2.amazonaws.com/ionicthemes-apps-assets/ion2FullApp/pin.min.png|-1.703447,-78.8145726">-->
+      <show-hide-container>
+      <ion-item>
+        <ion-input type="password"  formControlName="password" show-hide-input></ion-input>
+      </ion-item>
+    </show-hide-container>
+    </ion-list>
+
+    <!--<ion-row class="user-preferences-row">
+      <span class="radio-tags-label">Currency</span>
+      <ion-list class="radio-tags" radio-group formControlName="currency">
+        <ion-item class="radio-tag">
+          <ion-label>&#36;</ion-label>
+          <ion-radio value="dollar"></ion-radio>
+        </ion-item>
+        <ion-item class="radio-tag">
+          <ion-label>
+            <span>&euro;</span>
+          </ion-label>
+          <ion-radio value="euro"></ion-radio>
+        </ion-item>
+        <ion-item class="radio-tag">
+          <ion-label>
+            <span>&pound;</span>
+          </ion-label>
+          <ion-radio value="pound"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-row>-->
+
+    <!--<ion-row class="user-preferences-row">
+      <span class="radio-tags-label">Weather</span>
+      <ion-list class="radio-tags" radio-group formControlName="weather">
+        <ion-item class="radio-tag">
+          <ion-label>&deg;C</ion-label>
+          <ion-radio value="celsius"></ion-radio>
+        </ion-item>
+        <ion-item class="radio-tag">
+          <ion-label>
+            <span>&deg;F</span>
+          </ion-label>
+          <ion-radio value="fahrenheit"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-row>-->
+
+    <!--<ion-list class="switchers-list">
+      <ion-item class="switcher-item">
+        <ion-label>Notificaciones</ion-label>
+        <ion-toggle formControlName="notifications"></ion-toggle>
+      </ion-item>
+    </ion-list>-->
+  </form>
+
+  <button class="alt-button" ion-button full (click)="showPrivacyModal()">Políticas de privacidad</button>
+
+  <button class="alt-button" ion-button full (click)="showTermsModal()">Términos de uso</button>
+
+  <button class="alt-button logout-button" ion-button full icon-left (click)="logout()">
+    <ion-icon name="log-out"></ion-icon>
+    Cerrar Sesión
+  </button>
+</ion-content>

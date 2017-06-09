@@ -1,0 +1,80 @@
+<ion-header class="signup-header auth-header">
+  <ion-navbar>
+    <ion-title>Crear Cuenta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="signup-content auth-content">
+  <h2 class="auth-title">Crear una Cuenta</h2>
+  <form class="signup-form auth-form" [formGroup]="signup" (ngSubmit)="doSignup()">
+
+    
+      <ion-list radio-group formControlName="rdbciruc" >
+        <ion-grid>
+          <ion-row >
+ 
+            <ion-col >
+              <ion-label>Cédula  <ion-radio value="rdbci" (click)='selectCiRuc()'></ion-radio></ion-label> 
+            </ion-col>
+
+            <ion-col>
+            <ion-label>RUC  <ion-radio value="rdbruc"  (click)='selectCiRuc()' ></ion-radio></ion-label>
+            </ion-col>
+  
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+
+    <ion-item >
+    <ion-input  type="tel" placeholder="Cédula de identidad / RUC {{maxlengt}}" formControlName="ci" maxlength="13"></ion-input>
+    </ion-item >
+
+    <div *ngIf="maxlengt==10">
+     <p *ngIf="signup.get('ci').hasError('minlength')||signup.get('ci').hasError('maxlength')" color="danger">Debe tener 10 dígitos</p>
+    </div>
+
+    <div *ngIf="maxlengt==13">
+      <p *ngIf="signup.get('ci').hasError('minlength')||signup.get('ci').hasError('maxlength')" color="danger">Debe tener 13 dígitos</p>
+    </div>
+
+    <ion-item>
+      <ion-input type="input" placeholder="Nombres" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="input" placeholder="Apellidos" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel" placeholder="Teléfono" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="input" placeholder="Dirección" formControlName="address"></ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+    <show-hide-container>
+      <ion-item>
+        <ion-input type="password" placeholder="Contraseña" formControlName="password" show-hide-input></ion-input>
+      </ion-item>
+    </show-hide-container>
+    <show-hide-container>
+      <ion-item>
+        <ion-input type="password" placeholder="Confirmación de contraseña" formControlName="confirm_password" show-hide-input></ion-input>
+      </ion-item>
+      <!--<ion-item>
+       <ion-input type="input" placeholder="Distribuidor"  disabled="{{isDisabled}}" formControlName="role"></ion-input>
+      </ion-item>-->
+
+    </show-hide-container>
+    <button ion-button block class="auth-action-button signup-button" type="submit" [disabled]="!signup.valid">Crear Cuenta</button>
+  </form>
+  <!--<p class="auth-divider">
+    Or
+  </p>
+  <button ion-button block class="facebook-auth-button" (click)="doFacebookSignup()">Sign up with Facebook</button>
+  <button ion-button block class="google-auth-button" (click)="doGoogleSignup()">Sign up with Google</button>
+  <p class="legal-stuff">
+    By creating an account you agree to our <a class="legal-action" (click)="showPrivacyModal()">Privacy policy</a> and <a class="legal-action" (click)="showTermsModal()">Terms of use</a>
+  </p>-->
+</ion-content>
