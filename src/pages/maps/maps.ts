@@ -266,6 +266,9 @@ export class MapsPage implements OnInit {
       this.JourneyRoute=data[data.length-1];
 
     });
+    // alert("SU "+this.routeItem.length+" "+this.lstDistributors.length+" "+this.lstActiveOrders.length);
+    // alert("d "+this.lstDistributors.length);
+    // alert("o "+this.lstOrders.length);
     // fin manejo socket  
   }
 
@@ -278,8 +281,14 @@ export class MapsPage implements OnInit {
       _loading.dismiss();
     });
     this.socketUpdate();
+    
     this.flagflag=true;
-    // this.ShowJourney(); 
+    // // this.ShowJourney(); 
+    // for (var j = 0; j < this.lstActiveOrders.length; j++) {
+    //   if(this.lstActiveOrders[j].JourneyId==this.JourneyRoute.JourneyId){
+    //     this.Orders.push(this.lstActiveOrders[j]);
+    //   }	  
+    // }
     // for(var i = 0; i < this.lstDistributors.length; i++){
     //   for(var j=0;j<this.Orders.length;j++){
     //     // this.lstDistributors[i].DistributorId==route[j]
@@ -290,7 +299,9 @@ export class MapsPage implements OnInit {
     //     }
     //   }  
 
-    //   this.routeItem.reverse(); 
+    //   this.routeItem.reverse();
+    //   alert("ngOnInit "+this.routeItem.length+" "+this.lstDistributors.length+" "+this.Orders.length);
+    //   alert("a "+this.routeItem.length); 
   }
   
   ionViewDidEnter() {
@@ -534,6 +545,7 @@ export class MapsPage implements OnInit {
     //         this.markMilestone();
     //         this.socket.emit('AppTruckLocation',info);
     this.lstRoutePointAux=this.lstRoutePoint;
+     
     //console.log(this.lstRoutePointAux.length);
     
     var orderItem=[];
@@ -561,7 +573,7 @@ export class MapsPage implements OnInit {
               // position: posactual,
               user: this.current_user
             }
-
+            this.socketUpdate();
             if(this.routeItem.length!=0){
               distributorPosition = new google.maps.LatLng(this.routeItem[this.routeItem.length-1].CoordX, this.routeItem[this.routeItem.length-1].CoordY);
               if(google.maps.geometry.spherical.computeDistanceBetween(info.position,distributorPosition) < 300){
@@ -630,7 +642,7 @@ export class MapsPage implements OnInit {
     //         this.socket.emit('AppTruckLocation',info);
     this.lstRoutePointAux=this.lstRoutePoint;
     //console.log(this.lstRoutePointAux.length);
-    
+    // alert(this.lstRoutePoint[1].marker.getPosition().lat()+" "+this.lstRoutePointAux[1].marker.getPosition().lat()+" asig");
     var orderItem=[];
     var distributorPosition;
     this.flagButton=false;
@@ -657,7 +669,8 @@ export class MapsPage implements OnInit {
               // position: posactual,
               user: this.current_user
             }
-
+            // this.socketUpdate();
+            alert("antes de "+this.routeItem.length);
             if(this.routeItem.length!=0){
               distributorPosition = new google.maps.LatLng(this.routeItem[this.routeItem.length-1].CoordX, this.routeItem[this.routeItem.length-1].CoordY);
               if(google.maps.geometry.spherical.computeDistanceBetween(info.position,distributorPosition) < 300){
@@ -670,12 +683,14 @@ export class MapsPage implements OnInit {
                   distributorName:this.routeItem[this.routeItem.length-1].DistributorName,
                   email: mail
                 }
+
                 this.socket.emit('NearNotification',data);
                 console.log(this.routeItem.pop());
       //waypnts.push(distributorPosition);
               }else
               {
                 console.log(this.flagButton);
+                alert(distributorPosition+" "+info.position);
               }
               
             }
@@ -1145,13 +1160,15 @@ export class MapsPage implements OnInit {
              }
           }
 
-          this.lstRoutePoint.reverse();
-
-
+          
+            // this.lstRoutePoint.reverse();
+          // alert(this.flaglstRoute+" ");
           if(this.flaglstRoute==false)
           {
+              alert(this.lstRoutePoint[1].marker.getPosition().lat()+" "+this.lstRoutePointAux[1].marker.getPosition().lat());
               if(this.OtherRoute(this.lstRoutePoint[1].marker.getPosition().lat(),this.lstRoutePointAux[1].marker.getPosition().lat(),this.lstRoutePoint[1].marker.getPosition().lng(),this.lstRoutePointAux[1].marker.getPosition().lng()))
               {
+                  // alert("Si 2");
                   // alert("Se desvio");
                   let data={
                     name:this.driverName + this.driverLastName,
@@ -1166,6 +1183,7 @@ export class MapsPage implements OnInit {
               }
           }
           this.flaglstRoute=false;
+          
         },
         e => {
           console.log('onError: %s', e);
